@@ -473,8 +473,7 @@
 							jQuery('.hx2').css('display', 'block');
 							if($(window).width() >= $(window).height())
 							{
-								jQuery('.map2').css('background-position-x', 'calc((100vw - 100vh) / 2)');
-								jQuery('.map2').css('background-position', 'calc(-50vw + 50vh) calc(50vw - 50vh)');
+								jQuery('.map2').css('background-position', 'calc(50vw - 50vh) 0');
 								jQuery('.map2').css('padding', '0 calc((100vw - 100vh) / 2)');
 								jQuery('.map2').css('height', '100vh');
 								jQuery('.map2').css('background-size', '100vh');
@@ -482,8 +481,7 @@
 							}
 							else
 							{
-								jQuery('.map2').css('background-position-y', 'calc((100vh - 100vw) / 2)');
-								jQuery('.map2').css('background-position', 'calc(-50vh + 50vw) calc(50vh - 50vw)');
+								jQuery('.map2').css('background-position', '0 calc(50vh - 50vw)');
 								jQuery('.map2').css('padding', 'calc((100vh - 100vw) / 2) 0');
 								jQuery('.map2').css('height', '100vw');
 								jQuery('.map2').css('background-size', '100vw');
