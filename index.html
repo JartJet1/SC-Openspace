@@ -461,13 +461,13 @@
 						{
 							event.stopPropagation();
 							jQuery('.text').css('display', 'block');
+							jQuery('.map').css('background-color', 'rgba(0,0,0,0.0)');
 							jQuery('.map2').css('display', 'block');
 							jQuery('.map2').css('position', 'fixed');
 							jQuery('.map2').css('border-radius', '0%');
 							jQuery('.map2').css('top', '0');
 							jQuery('.map2').css('left', '0');
 							jQuery('.map2').css('background-repeat', 'no-repeat');
-							jQuery('.map').css('background-color', 'rgba(0,0,0,0.0)');
 							jQuery('.map2').css('background-color', 'rgba(0,0,0,0.7)');
 							jQuery('.map2').css('border', '0px solid white');
 							jQuery('.hx2').css('display', 'block');
@@ -500,9 +500,6 @@
 							jQuery('.map').css('background-repeat', 'no-repeat');
 							jQuery('.map').css('background-color', 'rgba(0,0,0,0.7)');
 							jQuery('.map').css('border', '0px solid white');
-							jQuery('.topmap').css('height', '25vh');
-							jQuery('.topmap').css('background-size', '25vh');
-							jQuery('.topmap').css('width', '25vh');
 							jQuery('.hx2').css('display', 'block');
 							if($(window).width() >= $(window).height())
 							{
@@ -511,6 +508,9 @@
 								jQuery('.map').css('height', '100vh');
 								jQuery('.map').css('background-size', '100vh');
 								jQuery('.map').css('width', '100vh');
+								jQuery('.topmap').css('height', '25vh');
+								jQuery('.topmap').css('background-size', '25vh');
+								jQuery('.topmap').css('width', '25vh');
 							}
 							else
 							{
@@ -519,6 +519,9 @@
 								jQuery('.map').css('height', '100vw');
 								jQuery('.map').css('background-size', '100vw');
 								jQuery('.map').css('width', '100vw');
+								jQuery('.topmap').css('height', '25vw');
+								jQuery('.topmap').css('background-size', '25vw');
+								jQuery('.topmap').css('width', '25vw');
 							}
 						}
 					);
