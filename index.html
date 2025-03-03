@@ -379,6 +379,82 @@
 					jQuery('.text').css('left', '0');
 					jQuery('.text').css('top', '0');
 					jQuery('.text').css('width', '100vw');
+					jQuery('body').css('display', 'grid');
+				}
+			);
+		</script>
+		<script>
+			function wyszukiwarka() 
+			{
+				var input, filtr, ul, li, a, i, txtValue;
+				input = document.getElementById("wyszukiwarka");
+				filtr = input.value.toUpperCase();
+				ul = document.getElementById("sbox");
+				li = ul.getElementsByTagName("hhh");
+				for (i = 0; i < li.length; i++) 
+				{
+					a = li[i].getElementsByTagName("bbb")[0];
+					if (li) 
+					{
+						txtValue = a.textContent || a.innerText;
+						if (txtValue.toUpperCase().indexOf(filtr) > -1) 
+						{
+							li[i].style.display = "";
+						} 
+						else 
+						{
+							li[i].style.display = "none";
+						}
+					}       
+				}
+			};
+		</script>
+		<script>
+			jQuery(function () {
+				function updateLayout() {
+					$('.sbox').scrollTop(0);
+					var windowHeight = $(window).height();
+					var baseHeight = windowHeight - 46 - 1 - 6;
+					var navObl1 = Math.floor(baseHeight / 78);
+					var navObl2 = navObl1 * 78;
+					var navObl3 = baseHeight - navObl2;
+					var navObl4 = navObl1 * 2;
+					var navObl5 = Math.floor(navObl3 / navObl4);
+					var navObl6 = navObl5 * navObl4;
+					var navObl7 = navObl3 - navObl6;
+					var Nav = 46 + navObl7;
+					var sbox0 = windowHeight - Nav - (navObl3 < navObl4 ? 7 : 1) - 6;
+					var sbox1 = 70 + (navObl3 >= navObl4 ? 2 * navObl5 : 0);
+					var box1Margin = (sbox1 - 50 - 2) / 2;
+					var map = 208, map2 = 52;
+					jQuery('.text').css('display', 'none');
+					jQuery('.map').css('width', map);
+					jQuery('.map').css('height', map);
+					jQuery('.map').css('background-size', map);
+					jQuery('.map').css('position', 'unset');
+					jQuery('.map').css('background-position', '0');
+					jQuery('.map').css('padding', '0');
+					jQuery('.map').css('border-radius', '50%');
+					jQuery('.map').css('border', '1px solid white');
+					jQuery('.topmap').css('width', map2);
+					jQuery('.topmap').css('height', map2);
+					jQuery('.topmap').css('background-size', map2);
+					jQuery('.topmap').css('margin', '59.9% auto');
+					jQuery('.topmap').css('border-radius', '50%');
+					jQuery('.map2').css('display', 'none');
+					jQuery(".Nav").css('height', Nav);
+					jQuery(".sbox").css('height', sbox0);
+					jQuery(".sbox1").css('height', sbox1);
+					jQuery(".ibox").css('height', $(".sbox0").height() - 8);
+					jQuery(".box1").css('margin', box1Margin);
+					jQuery(".textbox2").css('padding', box1Margin);
+					jQuery(".box1-1").css('margin-right', box1Margin);
+					jQuery('.box').css('padding', box1Margin);
+					jQuery(".textbox").css('padding-bottom', box1Margin);
+					jQuery(".textbox1").css('padding-top', box1Margin);
+					jQuery(".textbox1").css('padding-bottom', box1Margin);
+					jQuery(".hx2").css('right', box1Margin);
+					jQuery(".hx2").css('top', box1Margin);
 					jQuery('.topmap').click
 					(
 						function(event) 
@@ -469,82 +545,6 @@
 							jQuery('.hx2').css('display', 'none');
 						}
 					);
-					jQuery('body').css('display', 'grid');
-				}
-			);
-		</script>
-		<script>
-			function wyszukiwarka() 
-			{
-				var input, filtr, ul, li, a, i, txtValue;
-				input = document.getElementById("wyszukiwarka");
-				filtr = input.value.toUpperCase();
-				ul = document.getElementById("sbox");
-				li = ul.getElementsByTagName("hhh");
-				for (i = 0; i < li.length; i++) 
-				{
-					a = li[i].getElementsByTagName("bbb")[0];
-					if (li) 
-					{
-						txtValue = a.textContent || a.innerText;
-						if (txtValue.toUpperCase().indexOf(filtr) > -1) 
-						{
-							li[i].style.display = "";
-						} 
-						else 
-						{
-							li[i].style.display = "none";
-						}
-					}       
-				}
-			};
-		</script>
-		<script>
-			jQuery(function () {
-				function updateLayout() {
-					$('.sbox').scrollTop(0);
-					var windowHeight = $(window).height();
-					var baseHeight = windowHeight - 46 - 1 - 6;
-					var navObl1 = Math.floor(baseHeight / 78);
-					var navObl2 = navObl1 * 78;
-					var navObl3 = baseHeight - navObl2;
-					var navObl4 = navObl1 * 2;
-					var navObl5 = Math.floor(navObl3 / navObl4);
-					var navObl6 = navObl5 * navObl4;
-					var navObl7 = navObl3 - navObl6;
-					var Nav = 46 + navObl7;
-					var sbox0 = windowHeight - Nav - (navObl3 < navObl4 ? 7 : 1) - 6;
-					var sbox1 = 70 + (navObl3 >= navObl4 ? 2 * navObl5 : 0);
-					var box1Margin = (sbox1 - 50 - 2) / 2;
-					var map = 208, map2 = 52;
-					jQuery('.text').css('display', 'none');
-					jQuery('.map').css('width', map);
-					jQuery('.map').css('height', map);
-					jQuery('.map').css('background-size', map);
-					jQuery('.map').css('position', 'unset');
-					jQuery('.map').css('background-position', '0');
-					jQuery('.map').css('padding', '0');
-					jQuery('.map').css('border-radius', '50%');
-					jQuery('.map').css('border', '1px solid white');
-					jQuery('.topmap').css('width', map2);
-					jQuery('.topmap').css('height', map2);
-					jQuery('.topmap').css('background-size', map2);
-					jQuery('.topmap').css('margin', '59.9% auto');
-					jQuery('.topmap').css('border-radius', '50%');
-					jQuery('.map2').css('display', 'none');
-					jQuery(".Nav").css('height', Nav);
-					jQuery(".sbox").css('height', sbox0);
-					jQuery(".sbox1").css('height', sbox1);
-					jQuery(".ibox").css('height', $(".sbox0").height() - 8);
-					jQuery(".box1").css('margin', box1Margin);
-					jQuery(".textbox2").css('padding', box1Margin);
-					jQuery(".box1-1").css('margin-right', box1Margin);
-					jQuery('.box').css('padding', box1Margin);
-					jQuery(".textbox").css('padding-bottom', box1Margin);
-					jQuery(".textbox1").css('padding-top', box1Margin);
-					jQuery(".textbox1").css('padding-bottom', box1Margin);
-					jQuery(".hx2").css('right', box1Margin);
-					jQuery(".hx2").css('top', box1Margin);
 				}
 				updateLayout();
 				$(window).resize(updateLayout);
