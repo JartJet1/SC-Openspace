@@ -43,9 +43,6 @@ html {
 	body {
 		position: fixed;
 		height: 100%;
-		grid-template-areas: 
-			'a'
-			'a';
 		width: 100%;
 		margin:0;
 		padding:0;
@@ -153,19 +150,22 @@ html {
 				margin-right: 6px;
 			}
 		.sbox0 {
-			width: calc(100% - 6px);
+			width: auto;
 			overflow-x: hidden;
 			overflow-y: hidden;
 			z-index: 90000;
-			padding:3px;
+			padding:6px;
+			gap:6px;
 			grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
 			grid-auto-rows: minmax(min-content, max-content);
-			grid-template-areas: 'a1 a2 a2 a2';
+			grid-template-areas: 'a1 a1 a1 a1';
 		}
 			.sbox {
+				width: calc(100vw - 12px);
 				grid-area: a1;
 				overflow-x: hidden;
 				overflow-y: hidden;
+				gap:6px;
 				z-index: 90000;
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
@@ -180,7 +180,6 @@ html {
 					z-index: 90000;
 					background: rgba(0,0,0,0.4);
 					border: 1px solid rgba(57, 89, 123,0.8);
-					margin: 3px;
 				}
 					.box1 {
 						display: block;
@@ -204,12 +203,12 @@ html {
 				background: rgba(0,0,0,0.4);
 				top: 0;
 				left:0;
+				position: relative;
 				overflow-x: scroll;
 				float: left;
 				display:block;
 				z-index: 90000;
 				grid-area: a2;
-				margin: 3px;
 				float: left;
 				display:none;
 				border: 1px solid rgba(57, 89, 123,0.8);
