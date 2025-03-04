@@ -378,7 +378,7 @@
 					jQuery('.text').css('left', '0');
 					jQuery('.text').css('top', '6px');
 					jQuery('.text').css('width', '100vw');
-					if ($(window).width() <= 700)
+					if ($(window).width() <= $(window).height())
 					{
 						jQuery(".sbox0").css('display', 'block');
 						jQuery(".sbox").css('height', (sbox1 + 6) * 3);
@@ -469,7 +469,7 @@
 					jQuery(".hx2").css('right', box1Margin);
 					jQuery(".hx2").css('top', box1Margin);	
 					jQuery('.hx2').css('display', 'none');
-					if ($(window).width() <= 700 && $('.ibox').filter(function() {
+					if ($(window).width() <= $(window).height() && $('.ibox').filter(function() {
 						return $(this).css('display') === 'block';
 					}).length > 0)
 					{
@@ -479,7 +479,7 @@
 						jQuery(".ibox").css('height', $(window).height() - $(".sbox").height()  - $(".Nav").height() - 21);
 						jQuery(".ibox").css('width', 'calc(100% - 2px)');
 					}
-					 else if ($(window).width() <= 700)
+					 else if ($(window).width() <= $(window).height())
 					{
 						jQuery(".sbox0").css('display', 'block');
 						jQuery(".ibox").css('width', 'calc(100% - 2px)');
@@ -605,61 +605,50 @@
 			});
 		</script>
 		<script>
-			$(document).keyup
-			(
-				function(e) 
-				{
-					var scroll = $('.sbox1').height() + 2 + 6;
-					$(window).resize
-					(
-						function() 
-						{
-							var scroll = $('.sbox1').height() + 2 + 6;
-						}
-					)
+			$(document).ready(function () {
+				var scrollAmount = $('.sbox1').height() + 8;
+				
+				// Aktualizacja wartości scrolla przy zmianie rozmiaru okna
+				$(window).resize(function () {
+					scrollAmount = $('.sbox1').height() + 8;
+				});
+
+				// Obsługa klawiszy
+				$(document).keyup(function (e) {
 					if (e.keyCode === 27) $('.hx2').click();
-					if (e.keyCode === 38) document.getElementById('sbox').scrollBy(0, -scroll);
-					if (e.keyCode === 87) document.getElementById('sbox').scrollBy(0, -scroll);
-					if (e.keyCode === 40) document.getElementById('sbox').scrollBy(0, scroll);
-					if (e.keyCode === 83) document.getElementById('sbox').scrollBy(0, scroll);
-				}
-			)
-			$('.sbox').on
-			(
-				'wheel', function(event) 
-				{
-					jQuery
-					(
-						function() 
-						{
-							var scroll = $('.sbox1').height() + 2 + 6;
-							if (event.originalEvent.deltaY > 0) 
-							{
-								document.getElementById('sbox').scrollBy(0, scroll);
-							} 
-							else 
-							{
-								document.getElementById('sbox').scrollBy(0, -scroll);
-							};
+					if (e.keyCode === 38 || e.keyCode === 87) $('#sbox')[0].scrollBy(0, -scrollAmount);
+					if (e.keyCode === 40 || e.keyCode === 83) $('#sbox')[0].scrollBy(0, scrollAmount);
+				});
+
+				// Obsługa przewijania myszką
+				$('.sbox').on('wheel', function (event) {
+					if (event.originalEvent.deltaY > 0) {
+						$('#sbox')[0].scrollBy(0, scrollAmount);
+					} else {
+						$('#sbox')[0].scrollBy(0, -scrollAmount);
+					}
+				});
+
+				// Obsługa przewijania na urządzeniach mobilnych (dotyk)
+				var startY = 0;
+
+				$('.sbox').on('touchstart', function (event) {
+					startY = event.touches[0].clientY;
+				});
+
+				$('.sbox').on('touchmove', function (event) {
+					var endY = event.touches[0].clientY;
+					var deltaY = startY - endY;
+
+					if (Math.abs(deltaY) > 10) { // Zapobiega drobnym ruchom
+						if (deltaY > 0) {
+							$('#sbox')[0].scrollBy(0, scrollAmount);
+						} else {
+							$('#sbox')[0].scrollBy(0, -scrollAmount);
 						}
-					);
-					$(window).resize
-					(
-						function() 
-						{
-							var scroll = $('.sbox1').height() + 2 + 6;
-							if (event.originalEvent.deltaY > 0) 
-							{
-								document.getElementById('sbox').scrollBy(0, scroll);
-							} 
-							else 
-							{
-								document.getElementById('sbox').scrollBy(0, -scroll);
-							};
-						}
-					);
-				}
-			);
+					}
+				});
+			});
 		</script>
 		<script>
 			$(window).load
