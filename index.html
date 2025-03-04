@@ -515,7 +515,7 @@
 							{
 								jQuery('.text').css('top', '6px');
 								jQuery(".hx2").css('border-radius', '0.3125vw');
-								jQuery('.map2').css('background-position', 'calc(50vw - 50vh) 0');
+								jQuery('.map2').css('background-position', ($(window).width() - $(window).height()) / 2 + 'px 0');
 								jQuery('.map2').css('padding', '0 calc((100vw - 100vh) / 2)');
 								jQuery('.map2').css('height', '100vh');
 								jQuery('.map2').css('background-size', '100vh');
@@ -525,7 +525,7 @@
 							{
 								jQuery('.text').css('top', ($(window).height() - $(window).width()) / 2 + 6);
 								jQuery(".hx2").css('border-radius', '0.3125vh');	
-								jQuery('.map2').css('background-position', '0 calc(50vh - 50vw)');
+								jQuery('.map2').css('background-position', '0 ' + ($(window).height() - $(window).width()) / 2 + 'px');
 								jQuery('.map2').css('padding', 'calc((100vh - 100vw) / 2) 0');
 								jQuery('.map2').css('height', '100vw');
 								jQuery('.map2').css('background-size', '100vw');
@@ -552,7 +552,7 @@
 							{
 								jQuery('.text').css('top', '6px');
 								jQuery(".hx2").css('border-radius', '0.3125vw');
-								jQuery('.map').css('background-position', 'calc(50vw - 50vh) 0');
+								jQuery('.map').css('background-position', ($(window).width() - $(window).height()) / 2 + 'px 0');
 								jQuery('.map').css('padding', '0 calc((100vw - 100vh) / 2)');
 								jQuery('.map').css('height', '100vh');
 								jQuery('.map').css('background-size', '100vh');
@@ -565,7 +565,7 @@
 							{
 								jQuery('.text').css('top', ($(window).height() - $(window).width()) / 2 + 6);
 								jQuery(".hx2").css('border-radius', '0.3125vh');
-								jQuery('.map').css('background-position', '0 calc(50vh - 50vw)');
+								jQuery('.map').css('background-position', '0 ' + ($(window).height() - $(window).width()) / 2 + 'px');
 								jQuery('.map').css('padding', 'calc((100vh - 100vw) / 2) 0');
 								jQuery('.map').css('height', '100vw');
 								jQuery('.map').css('background-size', '100vw');
